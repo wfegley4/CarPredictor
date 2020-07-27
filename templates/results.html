@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Results</title>
+</head>
+
+<body>
+    <div>
+        <h1 style='text-align: center;'>Predicted Price: {{ prediction }}</h1>
+
+        <div>
+            <form action='/predict/results/graph' method='post'>
+                <div>
+                    <p style='text-align: center;'>
+                        Enter Real Price:
+                        <input type="text" name="Price" value="" size="10" required="required" placeholder=" Price">
+                    </p>
+                </div>
+
+                <div>
+                    <p style='display: flex; justify-content: center; align-items: center;'>
+                        <input type='submit'>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

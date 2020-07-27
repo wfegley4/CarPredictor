@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+{% macro input(name, value='', type='text', size=12) -%}
+    <div>
+        <p>
+            <input type="{{ type }}" name="{{ name }}" value="{{ value|e }}" size="{{ size }}" required="required" placeholder="Enter {{ name }}">
+        </p>
+    </div>
+{%- endmacro %}
+
+{% macro choose(name) -%}
+    <div>
+        <p>
+            <input list='{{ name }}-types' name="{{ name }}" placeholder='Choose {{ name }} Type' required="required" size=15>
+        </p>
+    </div>
+{%- endmacro %}
+
+{% macro label(text) -%}
+    <div>
+        <p style='margin-bottom: 19px;'>
+            {{ text }}
+        </p>
+    </div>
+{%- endmacro %}
+
+<html lang="en">
+
+<head>
+    <title>Predict</title>
+</head>
+
+<body>
+    <div style='padding-left: 42%;'>
+        <h1>Enter Specs Below</h1>
+    </div>
+
+    <div style='width: 50%; float: left;'>
+        <div style='float: right; padding-right: 10px;'>
+            <div>
+                {{ label('Body Style') }}
+
+                {{ label('Drivetrain') }}
+
+                {{ label('Transmission') }}
+
+                {{ label('Horsepower') }}
+
+                {{ label('Torque (lb-ft)') }}
+
+                {{ label('Rear Tire Width (mm)') }}
+
+                {{ label('MPG (Combined)') }}
+
+                {{ label('Weight (lbs)') }}
+            </div>
+        </div>
+    </div>
+
+    <form action='/predict/results' method='post'>
+        <div style='margin-left: 50%;'>
+            <div style='margin-top: 37px'></div>
+
+            {{ choose('Body') }}
+
+            {{ choose('Drive') }}
+
+            {{ choose('Trans') }}
+
+            {{ input('Horsepower') }}
+
+            {{ input('Torque') }}
+
+            {{ input('Tires') }}
+
+            {{ input('MPG') }}
+
+            {{ input('Weight') }}
+        </div>
+
+        <div>
+            <p>
+                <input type='submit'>
+            </p>
+        </div>
+
+    </form>
+
+
+    <datalist id='Body-types'>
+        {% for style in styles %}
+            <option value="{{ style|e }}">
+        {% endfor %}
+    </datalist>
+
+    <datalist id='Drive-types'>
+        {% for drive in drives %}
+            <option value="{{ drive|e }}">
+        {% endfor %}
+    </datalist>
+
+    <datalist id='Trans-types'>
+        {% for trans in transmissions %}
+            <option value="{{ trans|e }}">
+        {% endfor %}
+    </datalist>
+
+</body>
+</html>

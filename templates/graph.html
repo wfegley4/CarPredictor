@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Graphed Results</title>
+    </head>
+
+    <body>
+        <div>
+            <h1 style='text-align: center;'>Graphed Results</h1>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename=graph) }}" alt="Results Graph" style="display: block; margin-left: auto; margin-right: auto;">
+        </div>
+        <div>
+            <a href='/predict'><h3 style='text-align: center;'>Predict Another</h3></a>
+        </div>
+    </body>
+</html>
