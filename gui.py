@@ -10,7 +10,7 @@ gui = Flask(__name__)
 
 @gui.route('/')
 def examples(name=None):
-    return render_template('examples.html', predictions1=url_for('static', filename='good3.png'), predictions2=url_for('static', filename='good4.png'), predictions3=url_for('static', filename='good5.png'))
+    return render_template('examples.html', predictions1=url_for('static', filename='example1.png'), predictions2=url_for('static', filename='example4.png'), predictions3=url_for('static', filename='example5.png'))
 
 @gui.route('/predict')
 def predict(name=None):
