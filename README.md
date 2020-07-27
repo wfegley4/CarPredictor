@@ -1,9 +1,13 @@
 # CarPredictor
-A Dense Neural Network to predict the price of a car given a few key specs.
+A Tensorflow powered Dense Neural Network to predict the price of a car given a few key specs with a simple Flask powered frontend.
 
 This project uses Tensorflow for its Neural Network and Flask for the UI/webpage.
 
 The webpage can be found [here].
+
+Here is an example of what the program's output would look like:
+
+![Image of Results Graph](/static/example1.png)
 
 This project is intended as a learning tool and demonstration of various valuable skills.
 
